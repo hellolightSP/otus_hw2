@@ -28,7 +28,6 @@ MACHINES = {
                         :size => 250, # Megabytes
                         :port => 5
                 }
-
 	}
   },
 }
