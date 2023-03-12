@@ -33,18 +33,13 @@ MACHINES = {
 }
 
 Vagrant.configure("2") do |config|
-
   MACHINES.each do |boxname, boxconfig|
       config.vm.synced_folder ".", "/vagrant", disabled: true
       config.vm.define boxname do |box|
 
           box.vm.box = boxconfig[:box_name]
           box.vm.host_name = boxname.to_s
-
-          #box.vm.network "forwarded_port", guest: 3260, host: 3260+offset
-
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
-
           box.vm.provider :virtualbox do |vb|
             	  vb.customize ["modifyvm", :id, "--memory", "1024"]
                   needsController = false
