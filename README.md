@@ -19,7 +19,7 @@ Vagrantfile, который сразу собирает систему с под
 
 **Сделал задание со * , скрипт для создания рейда + конф для автосборки рейда при загрузке внёс в Vagrantfile**
 
-
+```
             yum install -y mdadm smartmontools hdparm gdisk
             mdadm --zero-superblock --force /dev/sd{b,c,d,e,f}
             mdadm --create --verbose --force /dev/md0 -l 5 -n 5 /dev/sd{b,c,d,e,f}
@@ -38,3 +38,4 @@ Vagrantfile, который сразу собирает систему с под
             for i in $(seq 1 5); do mount /dev/md0p$i /mnt/part$i; done
             echo "#raid devices" >> /etc/fstab
             for i in $(seq 1 5); do echo `sudo blkid /dev/md0p$i | awk '{print $2}'` /mnt/part$i ext4 defaults 0 0 >> /etc/fstab; done
+```
