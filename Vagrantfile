@@ -30,8 +30,6 @@ MACHINES = {
                 }
 
 	}
-
-		
   },
 }
 
@@ -56,7 +54,6 @@ Vagrant.configure("2") do |config|
 				vb.customize ['createhd', '--filename', dconf[:dfile], '--variant', 'Fixed', '--size', dconf[:size]]
                                 needsController =  true
                           end
-
 		  end
                   if needsController == true
                      vb.customize ["storagectl", :id, "--name", "SATA", "--add", "sata" ]
